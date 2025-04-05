@@ -1,5 +1,6 @@
+
+import Login from './pages/Login';
 import { MantineProvider } from '@mantine/core';
-import Login from './pages/Login'
 import './App.css'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
   return (
     <MantineProvider>
       <Login />
-      </MantineProvider>
+    </MantineProvider>
+ 
   )
 }
 
