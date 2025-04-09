@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { formstate } from "../types/index.tsx";
 import { Paper, TextField, FormControlLabel, Checkbox, Box, Typography, InputAdornment, IconButton, Button } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<formstate>({
         email: "",
         password: "",
@@ -48,6 +50,17 @@ const Login: React.FC = () => {
                 </Typography>
                 <form className = "flex flex-col">
                 <TextField
+                    label="Name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    placeholder="name"
+                    variant="outlined"
+                    fullWidth
+                    required
+                    margin="normal"
+                />
+                <TextField
                     label="Email"
                     name="email"
                     value={formData.email}
@@ -58,6 +71,7 @@ const Login: React.FC = () => {
                     required
                     margin="normal"
                 />
+                
                 
                 <TextField
                     label="Password"
@@ -84,7 +98,7 @@ const Login: React.FC = () => {
                         )
                     }}
                 />
-                
+                <div className ="flex flex-row justify-between">
                 <FormControlLabel
                     control={
                         <Checkbox 
@@ -96,11 +110,13 @@ const Login: React.FC = () => {
                     }
                     label="Remember me"
                 />
-                <Button className = "bg-gray-200">Login</Button>
+                <Button variant = "text" size={"small"}>Forgot Password?</Button>
+                </div>
+                <Button className = "bg-gray-200">Sign up</Button>
                 </form>
             </Paper>
         </Box>
     );
 };
 
-export default Login;
+export default Signup;
